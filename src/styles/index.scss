@@ -7,6 +7,10 @@
   --clr-white: hsl(252, 11%, 91%);
   --clr-primary: hsl(127, 100%, 82%); /* #F4B4FB , #FFF390 , #F7B054 */
 
+  --clr-meter_optimum: #77dd77;
+  --clr-meter-suboptimum-value: #f7b054;
+  --clr-meter-even-less-good-value: #ff392e;
+
   --fs-300: clamp(12.08px, calc(10px + 0.38vw), 20px);
   --fs-400: clamp(14.8px, calc(12.56px + 0.72vw), 28.32px);
   --fs-500: clamp(18.16px, calc(14.16px + 1.24vw), 40px);
@@ -46,7 +50,7 @@ body {
 }
 
 .generator-card {
-  width: 40vmax;
+  width: 60vmax;
   //   max-height: 80vmin;
   font-family: var(--ff-base);
   color: var(--clr-white);
@@ -160,13 +164,25 @@ body {
       text-transform: uppercase;
     }
 
-    meter::-webkit-meter-bar {
+    #pwStrength-meter::-webkit-meter-bar {
       position: absolute;
       right: 0;
       height: 1rem;
       width: 10vmax;
-      border-radius: var(--space-05);
+      border-radius: 0.3rem /* var(--space-05) */;
+      background-color: var(--clr-font);
+      box-shadow: 0 0 12px 2px var(--clr-gray);
       border: none;
+    }
+
+    #pwStrength-meter::-webkit-meter-optimum-value {
+      background-color: var(--clr-meter_optimum);
+    }
+    #pwStrength-meter::-webkit-meter-suboptimum-value {
+      background-color: var(--clr-meter-suboptimum-value);
+    }
+    #pwStrength-meter::-webkit-meter-even-less-good-value {
+      background-color: var(--clr-meter-even-less-good-value);
     }
   }
 
@@ -193,5 +209,11 @@ body {
     &:active {
       scale: 0.95;
     }
+  }
+}
+
+@media (width >= 60rem) {
+  .generator-card {
+    max-width: 40vmax;
   }
 }
