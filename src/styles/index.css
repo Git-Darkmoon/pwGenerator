@@ -1,0 +1,149 @@
+:root {
+  --bgColor: linear-gradient(120deg, #14131b 0%, #191820 100%);
+  --clr-black: hsl(248, 14%, 11%);
+  --clr-gray: hsl(248, 11%, 15%);
+  --clr-font: hsl(251, 9%, 53%);
+  --clr-white: hsl(252, 11%, 91%);
+  --clr-primary: hsl(127, 100%, 82%); /* #F4B4FB , #FFF390 , #F7B054 */
+  --fs-300: clamp(12.08px, calc(10px + 0.38vw), 20px);
+  --fs-400: clamp(14.8px, calc(12.56px + 0.72vw), 28.32px);
+  --fs-500: clamp(18.16px, calc(14.16px + 1.24vw), 40px);
+  --fs-600: clamp(20.16px, calc(15.76px + 2.02vw), 56.48px);
+  --fs-700: clamp(24.96px, calc(16.88px + 3.18vw), 80px);
+  --fs-800: clamp(30.88px, calc(17.2px + 4.89vw), 113.12px);
+  --ff-base: "Montserrat Alternates", sans-serif;
+  --space-05: 0.5rem;
+  --space-1: 1rem;
+  --space-2: 2rem;
+  --radius: 0.4rem;
+  --transition: all 0.3s ease;
+}
+
+body {
+  background: var(--bgColor);
+  background-size: 100vw 100vh;
+}
+
+.pwTitle {
+  text-align: center;
+  color: var(--clr-font);
+  font-size: var(--fs-600);
+  font-family: var(--ff-base);
+  font-weight: 700;
+  padding-block: var(--space-05);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.generator-card {
+  width: 40vmax;
+  font-family: var(--ff-base);
+  color: var(--clr-white);
+}
+.generator-card .generator-pw {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--clr-gray);
+  padding-inline: var(--space-2);
+}
+.generator-card .generator-pw #pwGenerated + * {
+  font-size: var(--fs-500);
+  color: var(--clr-primary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.generator-card .generator-pw #pwGenerated + *:hover {
+  color: var(--clr-white);
+  scale: 1.1;
+}
+.generator-card .generator-pw #pwGenerated + *:active {
+  scale: 1;
+  color: var(--clr-font);
+}
+.generator-card .generator-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--clr-gray);
+}
+.generator-card .generator-specs {
+  padding: var(--space-2);
+  padding-top: 0;
+  background-color: var(--clr-gray);
+}
+.generator-card .generator-specs #pwLength {
+  width: 100%;
+}
+.generator-card .generator-specs #pwLength::-webkit-slider-runnable-track {
+  border-radius: var(--radius);
+}
+.generator-card .generator-optionContainer {
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--space-2);
+}
+.generator-card .generator-optionContainer > * + * {
+  margin-top: var(--space-1);
+}
+.generator-card .generator-optionContainer .option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-05);
+  font-size: var(--fs-300);
+}
+.generator-card .generator-optionContainer .option label {
+  text-transform: capitalize;
+}
+.generator-card .generator-optionContainer .option input[type=checkbox] {
+  transform: scale(1.5);
+}
+.generator-card .generator-optionContainer .option input[type=checkbox]:checked {
+  accent-color: var(--clr-primary);
+}
+.generator-card .generator-strength {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: var(--space-1);
+  position: relative;
+  padding-block: var(--space-1);
+  background-color: var(--clr-black);
+}
+.generator-card .generator-strength h1 {
+  text-transform: uppercase;
+}
+.generator-card .generator-strength meter::-webkit-meter-bar {
+  position: absolute;
+  right: 0;
+  height: 2rem;
+  width: 10vmax;
+  border-radius: 2px;
+  border: none;
+}
+.generator-card .generator-generateBtn {
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: var(--clr-primary);
+  font-size: var(--fs-400);
+  padding-block: var(--space-1);
+  margin-block: var(--space-1);
+  border-radius: var(--radius);
+  border: none;
+  outline: 1px solid var(--clr-primary);
+  transition: var(--transition);
+}
+.generator-card .generator-generateBtn:hover {
+  background-color: transparent;
+  color: var(--clr-primary);
+}
+.generator-card .generator-generateBtn:active {
+  scale: 0.95;
+}/*# sourceMappingURL=index.css.map */
