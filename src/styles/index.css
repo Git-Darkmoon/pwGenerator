@@ -44,7 +44,7 @@ body {
 }
 
 .generator-card {
-  width: 35vmax;
+  width: 40vmax;
   font-family: var(--ff-base);
   color: var(--clr-white);
 }
