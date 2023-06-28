@@ -7,6 +7,8 @@ const AppContext = createContext()
 export function AppProvider({ children }) {
   const [pwLength, setPwLength] = useState(1)
 
+  // const [securityScore, setSecurityScore] = useState(pwLength)
+
   const [useLowerCase, setUseLowerCase] = useState(false)
   const [useUpperCase, setUseUpperCase] = useState(false)
   const [useNumbers, setUseNumbers] = useState(false)
@@ -32,7 +34,31 @@ export function AppProvider({ children }) {
       generatedPassword += characters[randomIndex]
     }
 
+    if (generatedPassword.includes("undefined")) {
+      toast.error("No option selected !!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      })
+      return
+    }
     return generatedPassword
+  }
+
+  function calcSecurityScore(length) {
+    let score = length
+
+    if (useLowerCase) score /= 0.75
+    if (useUpperCase) score /= 0.75
+    if (useNumbers) score *= 2
+    if (useSymbols) score *= 3
+
+    return score
   }
 
   async function saveToClipboard(pw) {
@@ -67,6 +93,9 @@ export function AppProvider({ children }) {
         setUseUpperCase,
         setUseNumbers,
         setUseSymbols,
+        calcSecurityScore,
+        // securityScore,
+        // setSecurityScore,
       }}
     >
       {children}

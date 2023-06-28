@@ -1,6 +1,8 @@
 import Card from "./Components/Card"
 import { ToastContainer } from "react-toastify"
 
+console.clear()
+
 function App() {
   return (
     <>
