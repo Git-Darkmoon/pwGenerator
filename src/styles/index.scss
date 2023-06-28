@@ -50,7 +50,7 @@ body {
 }
 
 .generator-card {
-  width: 60vmax;
+  width: 35vmax;
   //   max-height: 80vmin;
   font-family: var(--ff-base);
   color: var(--clr-white);
@@ -219,6 +219,11 @@ body {
   }
 }
 
+@media (width >= 26.5625rem) {
+  .generator-card {
+    max-width: 50vmax;
+  }
+}
 @media (width >= 60rem) {
   .generator-card {
     max-width: 40vmax;
