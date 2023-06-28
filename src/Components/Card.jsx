@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { FaRegCopy } from "react-icons/fa"
-import { AiOutlineArrowRight } from "react-icons/ai"
+import { AiOutlineArrowRight, AiFillLock } from "react-icons/ai"
 
 function Card() {
   const [pwLength, setPwLength] = useState(1)
@@ -18,6 +18,7 @@ function Card() {
 
   function generatePassword(length) {
     let characters = ""
+
     if (useLowerCase) characters += lowerCase
     if (useUpperCase) characters += upperCase
     if (useNumbers) characters += numbers
@@ -25,23 +26,30 @@ function Card() {
 
     let generatedPassword = ""
     const passwordLength = length // Desired password length
-
     for (let i = 0; i < passwordLength; i++) {
       const randomIndex = Math.floor(Math.random() * characters.length)
       generatedPassword += characters[randomIndex]
     }
 
-    setPassword(generatedPassword)
+    return generatedPassword
   }
 
   return (
     <article className="generator-card">
       <div className="generator-pw">
-        <h2 id="pwGenerated"> {password}</h2>
+        <h2 id="pwGenerated">
+          <AiFillLock /> {password}
+        </h2>
         <FaRegCopy />
       </div>
       <br />
-      <div className="generator-specs">
+      <form
+        className="generator-specs"
+        onSubmit={(e) => {
+          e.preventDefault()
+          setPassword(generatePassword(pwLength))
+        }}
+      >
         <div className="generator-info">
           <h3 id="charTxt">character length</h3>
           <h2 id="charLength">{pwLength}</h2>
@@ -116,13 +124,10 @@ function Card() {
             value={pwLength}
           />
         </section>
-        <button
-          className="generator-generateBtn"
-          onClick={console.log(generatePassword(pwLength))}
-        >
+        <button className="generator-generateBtn">
           Generate <AiOutlineArrowRight />
         </button>
-      </div>
+      </form>
     </article>
   )
 }

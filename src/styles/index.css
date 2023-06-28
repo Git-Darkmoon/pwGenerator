@@ -56,6 +56,12 @@ body {
   padding-inline: var(--space-2);
   border-radius: var(--radius);
 }
+.generator-card .generator-pw #pwGenerated {
+  color: var(--clr-white);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
 .generator-card .generator-pw #pwGenerated + * {
   font-size: var(--fs-500);
   color: var(--clr-primary);
