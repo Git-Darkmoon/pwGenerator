@@ -4,7 +4,7 @@
   --clr-gray: hsl(248, 11%, 15%);
   --clr-font: hsl(251, 9%, 53%);
   --clr-white: hsl(252, 11%, 91%);
-  --clr-primary: hsl(127, 100%, 82%); /* #F4B4FB , #FFF390 , #F7B054 */
+  --clr-primary: #f7b054; /* #F4B4FB , #FFF390 , #F7B054 , #a3ffae */
   --clr-meter_optimum: #77dd77;
   --clr-meter-suboptimum-value: #f7b054;
   --clr-meter-even-less-good-value: #ff392e;
@@ -25,6 +25,9 @@
 body {
   background: var(--bgColor);
   background-size: 100vw 100vh;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .pwTitle {
